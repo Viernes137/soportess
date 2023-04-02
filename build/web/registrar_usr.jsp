@@ -1,7 +1,7 @@
 <%-- 
     Document   : registro
     Created on : 31 mar. 2023, 21:04:07
-    Author     : bruno fragoso
+    Author     : ldrnts
 --%>
 
 <%@page import="conexion.Base"%>

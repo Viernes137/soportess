@@ -26,4 +26,5 @@ select * from reportes where estado = '2';
 select * from usuario;
 select * from reportes;
 select * from reportes where estado = '1';
-                        
+insert into usuario(nom_usr,password_pac,correo_usr,tipo_usr) values ('Gael','123456','gael@gmail.com','1');                        
+delete from reportes where id_rep = '1';

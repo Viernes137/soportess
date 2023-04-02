@@ -1,7 +1,7 @@
 <%-- 
     Document   : validarusr
     Created on : 31 mar. 2023, 21:39:12
-    Author     : bruno fragoso
+    Author     : ldrnts
 --%>
 
 <%@page import="java.sql.ResultSet"%>

@@ -21,7 +21,7 @@ public Base(){
     
     //agregar datos para conectarse
    this.usrBD = "root";
-   this.passBD = "246810";
+   this.passBD = "n0m3l0";
    this.urlBD = "jdbc:mysql://localhost:3306/hipopotamo";
    this.driverClassName = "com.mysql.jdbc.Driver";//inicializar driver
 }
@@ -103,53 +103,3 @@ public Base(){
         return st.executeUpdate(editar);
     }
 }
-
-
-
-
-/*
-
-    public void setUsrBD(String usrBD) throws SQLException {
-        this.usrBD = usrBD;
-    }
-
-    public void setPassBD(String pass) {
-        this.passBD = pass;
-    }
-
-    public void setUrlBD(String url) {
-        this.urlBD = url;
-    }
-
-    public void setDriverClassName(String driverClassName) {
-        this.driverClassName = driverClassName;
-    }
-
-    public void setConn(Connection conn) {
-        this.conn = conn;
-    }
-    
-    //conexion a la BD
-    public void conectar() throws SQLException{
-        try {
-            Class.forName(this.driverClassName).newInstance();
-            this.conn = DriverManager.getConnection(this.urlBD, this.usrBD, this.passBD);
-            
-        }
-        catch (Exception err) {
-            System.out.println("Error "+ err.getMessage());
-        }
-    }
-    
-    //cerrar la conexion de BD
-    public void cierraConexion() throws SQLException{
-        this.conn.close();
-    }
-    
-    //metodos para ejecutar sentencias SQL
-    public int insertar(String inserta) throws SQLException {
-        Statement st = (Statement) this.conn.createStatement();
-        return st.executeUpdate(inserta);
-    }
-}
-*/

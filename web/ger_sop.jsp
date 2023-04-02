@@ -1,7 +1,7 @@
 <%-- 
     Document   : ger_sop
     Created on : 31 mar. 2023, 22:02:04
-    Author     : bruno fragoso
+    Author     : ldrnts
 --%>
 
 <%@page import="java.sql.ResultSet"%>
@@ -108,7 +108,7 @@
                     </script>
                     <button class="btn btn-secondary" onclick="mant()">mantenimiento</button>
                     <button class="btn btn-secondary" onclick="sop()">soporte</button>
-                    <!--<button type="submit" class="btn btn-primary">Enviar</button>-->
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
                             <hr>
                             </div>
@@ -162,7 +162,6 @@
                             while(conex3.next()){
                             
                             String reporte = conex3.getString(2);
-                            String fecha = conex3.getString(6);
                             String fecha = conex3.getString(6);
                             int tipo = conex3.getInt(7);
                             String tipo_txt ="";
