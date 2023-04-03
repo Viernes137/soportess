@@ -4,7 +4,7 @@ use hipopotamo;
 
 create table usuario(id_usr int primary key not null auto_increment, 
 						nom_usr varchar(20),
-                        password_pac varchar(10),
+                        password_pac varchar(15),
                         correo_usr varchar(30),
                         tipo_usr int);
                         
