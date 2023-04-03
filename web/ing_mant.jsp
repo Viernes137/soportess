@@ -15,6 +15,7 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
         <link href="css1.css" rel="stylesheet">
+        <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
         <%
@@ -38,8 +39,8 @@
                         
         %>
         <div class="container">
-            <div>
-                <h1><%=Nombre%>, su rol es ingeniero de mantenimiento sisi</h1>
+            <div class="p-5  rounded-3">
+                <center><h1><%=Nombre%> es ingeniero de mantenimiento </h1></center>
             </div>
             <script>
                 function calabaza(id){

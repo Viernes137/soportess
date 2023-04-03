@@ -16,6 +16,7 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
         <link href="css1.css" rel="stylesheet">
+        <link rel="shortcut icon" href="IconoJAYMO.ico">
         <style>
             .subtitulotabla{
                 height: 70px;
@@ -43,8 +44,8 @@
         bd.conectar();
         %>
         <div class="container">
-            <div>
-                <h1><%=Nombre%>, su rol es Gerente de Soporte</h1>
+            <div class="p-5  rounded-3">
+                <center><h1><%=Nombre%> es Gerente de Soporte</h1></center>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">
@@ -365,4 +366,5 @@
         %>
     </body>
 </html>
+
 

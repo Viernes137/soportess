@@ -15,6 +15,7 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
         <link href="css1.css" rel="stylesheet">
+        <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
         <%
@@ -37,14 +38,14 @@
             var Fecha = (fecha.getFullYear() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
         </script>
         <div class="container">
-            <div>
-                <h1><%=Nombre%>, su rol es asisitente sisi</h1>
+            <div class="p-5  rounded-3">
+                <center><h1><%=Nombre%> es Asisitente</h1></center>
             </div>
             <div class="centrado">
                 <form name="Reportes" method="post" action="reg_rep.jsp">
                     <div class="mb-3">
-                        <label for="reporte" class="form-label">reporte</label>
-                        <input type="text" class="form-control" id="reporte" name="reporte" aria-describedby="emailHelp">
+                        <label for="reporte" class="form-label">Reporte</label>
+                        <input type="text" class="form-control"  id="reporte"  name="reporte" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3 escondido">
                         <label for="estado" class="form-label"></label>
