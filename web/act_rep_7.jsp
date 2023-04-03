@@ -1,7 +1,7 @@
 <%-- 
     Document   : act_rep_7
     Created on : 2 abr. 2023, 22:45:12
-    Author     : bruno fragoso
+    Author     : ldrnts
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conexion.Base"%>

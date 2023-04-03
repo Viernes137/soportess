@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="cosaa"> 
-            <!-- aca falta poner todos los datos que se van a mandar desde la base de datos en la cosas de mete_datoss -->
+            
             <div id="cosab" class="e">
                 <h1>Tus Datos</h1>
                 <%

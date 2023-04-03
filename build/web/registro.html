@@ -1,6 +1,6 @@
-    <html>
+ <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Registro</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--bootstrap-->
@@ -8,22 +8,29 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!--css personalizado-->
         <link href="css1.css" rel="stylesheet">
+        <link rel="shortcut icon" href="IconoJAYMO.ico">
 
     </head>
     <body>
         <div class="container centrado" id="bloq1">
             <div  id="bloq2" class="p-4">
+                
+                <center><h1>Registro</h1></center>
+                
+                
                 <form name="usuarios" method="post" action="registrar_usr.jsp">
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">usuario</label>
+                        <center><img src="Datos.gif" width="200" height="100"></center>
+                       
+                        <label for="nombre" class="form-label">Usuario</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="correo" class="form-label">correo</label>
+                        <label for="correo" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="correo" name="correo">
                     </div>
                     <div class="mb-3">
-                        <label for="pass" class="form-label">contraseña</label>
+                        <label for="pass" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="pass" name="pass">
                     </div>
                     <div class="mb-3" style="display: flex; flex-direction: column;">
@@ -31,12 +38,14 @@
                                     <select id="tipo" name="tipo">
                                         <option value="1">Asistente</option>
                                         <option value="2">Gerente de soporte</option>
-                                        <option value="3">gerente de mantenimiento</option>
-                                        <option value="4">ingeniero de soporte</option>
-                                        <option value="5">ingeniero de mantenimiento</option>
+                                        <option value="3">Gerente de mantenimiento</option>
+                                        <option value="4">Ingeniero de soporte</option>
+                                        <option value="5">Ingeniero de mantenimiento</option>
                                     </select>
                                 </div>
-                    <button type="submit" class="btn btn-primary">Registrarte</button>
+                    
+                    <center><button type="submit" class="btn btn-primary">Registrarte</button>
+                        <a class="btn btn-outline-dark" href="index.html" role="button">Regresar</a></center>
                 </form>
             </div>
         </div>

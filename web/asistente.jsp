@@ -1,7 +1,7 @@
 <%-- 
     Document   : asistente
     Created on : 31 mar. 2023, 22:01:49
-    Author     : bruno fragoso
+    Author     : alison
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="conexion.Base"%>

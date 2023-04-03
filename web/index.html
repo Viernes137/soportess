@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Inicio de Sesión</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--bootstrap-->
@@ -14,26 +14,33 @@ and open the template in the editor.
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!--css personalizado-->
         <link href="css1.css" rel="stylesheet">
+        <link rel="shortcut icon" href="IconoJAYMO.ico">
 
     </head>
+    
     <body>
         <div class="container centrado" id="bloq1">
             <div  id="bloq2" class="p-4">
+                <h1>Inicio de Sesión</h1>
+                <br>
+                <center><img src="¡WELCOME!.gif" width="200" height="200"></center>
+                <br>
                 <form name="inicio-sesion" method="post" action="validarusr.jsp">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="TxtUsr" name="TxtUsr" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="TxtPsw" name="TxtPsw">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        
                     </div>
-                    <button type="submit" class="btn btn-primary">Iniciar</button>
-                    <a class="btn btn-primary" href="registro.html" role="button">Registrarte</a>
+                    <center><button type="submit" class="btn btn-primary">Iniciar</button>
+                        <a class="btn btn-primary" href="registro.html" role="button">Registrarte</a></center>
                 </form>
             </div>
         </div>
     </body>
 </html>
+

@@ -44,7 +44,7 @@
         %>
         <div class="container">
             <div>
-                <h1><%=Nombre%>, su rol es Gerente de soporte sisi</h1>
+                <h1><%=Nombre%>, su rol es Gerente de Soporte</h1>
             </div>
             <div class="container text-center">
                 <div class="row align-items-start">

@@ -76,7 +76,7 @@
                         response.sendRedirect("ing_mant.jsp");
                         break;
                     default:
-                        msj="andas valiendo verga uwu ";
+                        msj="algo anda mal ";
                         break;
                     }
                     
