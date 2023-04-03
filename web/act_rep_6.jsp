@@ -1,9 +1,8 @@
 <%-- 
-    Document   : act_rep_3
-    Created on : 2 abr. 2023, 19:11:41
+    Document   : act_rep_6
+    Created on : 2 abr. 2023, 22:30:01
     Author     : bruno fragoso
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conexion.Base"%>
@@ -16,16 +15,15 @@
     </head>
     <body>
         <%
-        String estado = request.getParameter("estado");
+        String tipo = request.getParameter("tipo");
         String fecha_ac =request.getParameter("fecha_ac");
-        String respuesta = request.getParameter("resp");
         String id = request.getParameter("id");
         
         String msj = "";
         Base bd = new Base();
         bd.conectar();
         try{
-            String strQry = "update reportes set estado = '"+estado+"', resp= '"+respuesta+"',fecha_ac='"+fecha_ac+"' where id_rep ='"+id+"';";
+            String strQry = "update reportes set tipo_rep = '"+tipo+"',fecha_ac='"+fecha_ac+"' where id_rep ='"+id+"';";
             out.print(strQry);
             int resultadoInsert = bd.insertar(strQry);
             msj="Se envio al area correspondeinte correctamente";
@@ -38,11 +36,10 @@
         <script>
             var patadepollo = confirm("<%=msj%>");
             if (patadepollo == true) {
-                location.href = 'ing_sop.jsp';
+                location.href = 'ger_mant.jsp';
             } else {
-                location.href = 'ing_sop.jsp';
+                location.href = 'ger_mant.jsp';
             }
         </script>
-        <h1>a<%=id%></h1>
     </body>
 </html>

@@ -79,7 +79,7 @@
                 </form>
             </div>
         </div>
-
+            <a id="bt1a" href="index.html"><h5>regresar</h5></a>
         <%}catch (Exception ex) {%>
         <div class="container">
             <div class="centrado">
