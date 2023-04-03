@@ -14,8 +14,9 @@
         <title>JSP Page1</title>
     </head>
     <body>
+ 
         <div id="cosaa"> 
-            
+
             <div id="cosab" class="e">
                 <h1>Tus Datos</h1>
                 <%
@@ -23,9 +24,9 @@
                     String varemail = request.getParameter("correo");
                     String varpass = request.getParameter("pass");
                     String vartipo = request.getParameter("tipo");
-                    
-                    if (!varnomb_usuer.equals("") && !varemail.equals("") && !varpass.equals("")&& !vartipo.equals("")) {
-                    
+
+                    if (!varnomb_usuer.equals("") && !varemail.equals("") && !varpass.equals("") && !vartipo.equals("")) {
+
                         //se valida que tengan datos los campos
                         //guardamos en la base de datos
                         Base bd = new Base();

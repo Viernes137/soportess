@@ -18,20 +18,30 @@
         <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
+        <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <%
-        try{
-        HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
-        int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
-        String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
+            try {
+                HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
+                int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
+                String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
 
-        if (idPac < 1) {
-            response.sendRedirect("index.html");
-        }
+                if (idPac < 1) {
+                    response.sendRedirect("index.html");
+                }
 
-        String alias = "";
+                String alias = "";
 
-        Base bd = new Base();
-        bd.conectar();
+                Base bd = new Base();
+                bd.conectar();
         %>
         <script>
             var fecha = new Date();
@@ -72,7 +82,8 @@
                             document.getElementById('fecha_in').value = Fecha.toString();
                             document.getElementById('fecha_ac').value = Fecha.toString();
                             document.getElementById('estado').value = "1";
-                        };
+                        }
+                        ;
                         defdatos();
                     </script>
 
@@ -80,14 +91,8 @@
                 </form>
             </div>
         </div>
-            <a id="bt1a" href="index.html"><h5>regresar</h5></a>
-        <%}catch (Exception ex) {%>
-        <div class="container">
-            <div class="centrado">
-                <h1><%out.print("se ha cerrado la sesion");%></h1>  
-                <a class="btn btn-secondary" href='index.html'>regresar</a>
-            </div>
-        </div>
+        <%} catch (Exception ex) {%>
+
         <%
             }
         %>

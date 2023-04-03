@@ -18,44 +18,55 @@
         <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
+        <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <%
-            try{
-        HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
-        int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
-        String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
+            try {
+                HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
+                int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
+                String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
 
-        if (idPac < 1) {
-            response.sendRedirect("index.html");
-        }
+                if (idPac < 1) {
+                    response.sendRedirect("index.html");
+                }
 
-        String alias = "";
-        int cont =0;
+                String alias = "";
+                int cont = 0;
 
-        Base bd = new Base();
-        bd.conectar();
-                        String strQry2 = "select * from reportes where estado = '3' and tipo_rep ='2';";
-                        ResultSet conex = bd.consulta(strQry2);
-                        
-                        
+                Base bd = new Base();
+                bd.conectar();
+                String strQry2 = "select * from reportes where estado = '3' and tipo_rep ='2';";
+                ResultSet conex = bd.consulta(strQry2);
+
+
         %>
         <div class="container">
             <div class="p-5  rounded-3">
                 <center><h1><%=Nombre%> es ingeniero de mantenimiento </h1></center>
             </div>
             <script>
-                function calabaza(id){
+                function calabaza(id) {
                     document.getElementById('id').value = id;
-                };
+                }
+                ;
             </script>
             <div class="centrado">
                 <div>
                     <%
-                                    while(conex.next()){
-                                    cont++;
-                            
-                                    String reporte = conex.getString(2);
-                                    int id = conex.getInt(1);
-                                    if(cont==1){
+                        while (conex.next()) {
+                            cont++;
+
+                            String reporte = conex.getString(2);
+                            int id = conex.getInt(1);
+                            if (cont == 1) {
                     %>
                     <div class="centrado">
                         <form name="Reportes<%=cont%>" method="post" action="act_rep_5.jsp">
@@ -89,20 +100,21 @@
                             </div>
                             <button class="btn btn-secondary" id="bt2" onclick="calabaza(<%=id%>)">solucion programado</button>
                             <hr>
-                            
+
                             <script>
                                 function fechaa() {
                                     document.getElementById('fecha_ac').value = Fecha.toString();
                                     document.getElementById('estado').value = "4";
                                     document.getElementById('tipo').value = "3";
-                                };
+                                }
+                                ;
                                 fechaa();
                             </script>
                         </form>
                         <hr>
                     </div>
                     <%
-            }else{ %>
+                    } else {%>
                     <div class="centrado mt-3"  id="cont1">
                         <h6><%=reporte%></h6>
 
@@ -110,20 +122,13 @@
                     <%
                             }
 
-                            }
+                        }
                     %>
                 </div>
             </div>
         </div>
-        <a id="bt1a" href="index.html"><h5>regresar</h5></a>
         <%
-            }catch (Exception ex) {%>
-        <div class="container">
-            <div class="centrado">
-                <h1><%out.print("se ha cerrado la sesion");%></h1>  
-                <a class="btn btn-secondary" href='index.html'>regresar</a>
-            </div>
-        </div>
+        } catch (Exception ex) {%>
         <%
             }
         %>

@@ -15,21 +15,20 @@
     </head>
     <body>
         <%
-        String reporte = request.getParameter("reporte");
-        String estado = request.getParameter("estado");
-        String fecha_in = request.getParameter("fecha_in");
-        String fecha_ac =request.getParameter("fecha_ac");
-        String msj = "";
-        Base bd = new Base();
-        bd.conectar();
-        try{
-            String strQry = "insert into reportes(report,estado,fecha_in,fecha_ac) values ('" + reporte + "','" + estado + "','" + fecha_in + "','" + fecha_ac + "');";
-            out.print(strQry);
-            int resultadoInsert = bd.insertar(strQry);
-            msj="Su reporte fue enviado correctamente";
-            }
-        catch (Exception ex) { 
-            msj="Su reporte no se pudo concretar";
+            String reporte = request.getParameter("reporte");
+            String estado = request.getParameter("estado");
+            String fecha_in = request.getParameter("fecha_in");
+            String fecha_ac = request.getParameter("fecha_ac");
+            String msj = "";
+            Base bd = new Base();
+            bd.conectar();
+            try {
+                String strQry = "insert into reportes(report,estado,fecha_in,fecha_ac) values ('" + reporte + "','" + estado + "','" + fecha_in + "','" + fecha_ac + "');";
+                out.print(strQry);
+                int resultadoInsert = bd.insertar(strQry);
+                msj = "Su reporte fue enviado correctamente";
+            } catch (Exception ex) {
+                msj = "Su reporte no se pudo concretar";
             }
 
         %>
@@ -41,6 +40,6 @@
                 location.href = 'asistente.jsp';
             }
         </script>
-       
+
     </body>
 </html>

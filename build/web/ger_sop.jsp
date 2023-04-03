@@ -26,22 +26,32 @@
         </style>
     </head>
     <body>
+        <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <%
-        try{
-        HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
-        int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
-        String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
+            try {
+                HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
+                int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
+                String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
 
-        if (idPac < 1) {
-            response.sendRedirect("index.html");
-        }
+                if (idPac < 1) {
+                    response.sendRedirect("index.html");
+                }
 
-        String alias = "";
-        int cont =0;
-        int cont2 =0;
+                String alias = "";
+                int cont = 0;
+                int cont2 = 0;
 
-        Base bd = new Base();
-        bd.conectar();
+                Base bd = new Base();
+                bd.conectar();
         %>
         <div class="container">
             <div class="p-5  rounded-3">
@@ -67,18 +77,18 @@
                             ;
                         </script>
                         <%
-                        String strQry2 = "select * from reportes where estado = '1';";
-                        ResultSet conex = bd.consulta(strQry2);
-                            
-                        while(conex.next()){
-                        cont++;
-                            
-                        String reporte = conex.getString(2);
-                        String fecha = conex.getString(5);
-                        
-                        int id = conex.getInt(1);
-                        if(cont == 1){
-                            
+                            String strQry2 = "select * from reportes where estado = '1';";
+                            ResultSet conex = bd.consulta(strQry2);
+
+                            while (conex.next()) {
+                                cont++;
+
+                                String reporte = conex.getString(2);
+                                String fecha = conex.getString(5);
+
+                                int id = conex.getInt(1);
+                                if (cont == 1) {
+
                         %>
                         <div class="centrado">
                             <form name="mandarnuevos" id="mandarnuevos" method="post" action="act_rep_2.jsp">
@@ -129,21 +139,21 @@
                             </form>
                         </div>
                         <%
-                            }else{
+                        } else {
                         %>
                         <div class="centrado mt-3"  >
                             <div>
-                            <h6><%=reporte%></h6>
-                            <p><b>fecha de creacion:</b></p>
-                                    <p> <%=fecha%></p>
-                                    <hr>
+                                <h6><%=reporte%></h6>
+                                <p><b>fecha de creacion:</b></p>
+                                <p> <%=fecha%></p>
+                                <hr>
                             </div>
-                            
+
                         </div>
                         <%
-                            continue;
+                                    continue;
+                                }
                             }
-}
                         %>
                     </div>
                     <div class="col">
@@ -154,21 +164,21 @@
                         <%
                             String strQry3 = "select * from reportes where estado = '2';";
                             ResultSet conex2 = bd.consulta(strQry3);
-                            while(conex2.next()){
-                            
-                            String reporte = conex2.getString(2);
-                            String fecha = conex2.getString(6);
-                            int tipo = conex2.getInt(7);
-                            String tipo_txt ="";
-                            String color ="";
-                            
-                            if (tipo == 1){
-                                tipo_txt ="soporte ";
-                                color ="#6BB822";
-                            }else{
-                                tipo_txt ="mantenimiento ";
-                                color ="#286CCD";
-                            }
+                            while (conex2.next()) {
+
+                                String reporte = conex2.getString(2);
+                                String fecha = conex2.getString(6);
+                                int tipo = conex2.getInt(7);
+                                String tipo_txt = "";
+                                String color = "";
+
+                                if (tipo == 1) {
+                                    tipo_txt = "soporte ";
+                                    color = "#6BB822";
+                                } else {
+                                    tipo_txt = "mantenimiento ";
+                                    color = "#286CCD";
+                                }
                         %>
                         <div class="blq3 p-4" >
                             <h6><%=reporte%></h6>
@@ -189,21 +199,21 @@
                         <%
                             String strQry4 = "select * from reportes where estado = '3';";
                             ResultSet conex3 = bd.consulta(strQry4);
-                            while(conex3.next()){
-                            
-                            String reporte = conex3.getString(2);
-                            String fecha = conex3.getString(6);
-                            int tipo = conex3.getInt(7);
-                            String tipo_txt ="";
-                            String color ="";
-                            
-                            if (tipo == 1){
-                                tipo_txt ="soporte ";
-                                color ="#6BB822";
-                            }else{
-                                tipo_txt ="mantenimiento ";
-                                color ="#286CCD";
-                            }
+                            while (conex3.next()) {
+
+                                String reporte = conex3.getString(2);
+                                String fecha = conex3.getString(6);
+                                int tipo = conex3.getInt(7);
+                                String tipo_txt = "";
+                                String color = "";
+
+                                if (tipo == 1) {
+                                    tipo_txt = "soporte ";
+                                    color = "#6BB822";
+                                } else {
+                                    tipo_txt = "mantenimiento ";
+                                    color = "#286CCD";
+                                }
                         %>
                         <div class=" p-4">
                             <h6><%=reporte%></h6>
@@ -229,27 +239,27 @@
                         <%
                             String strQry5 = "select * from reportes where estado = '4' and tipo_rep=2;";
                             ResultSet conex4 = bd.consulta(strQry5);
-                            while(conex4.next()){
+                            while (conex4.next()) {
                                 cont2++;
                                 String reporte = conex4.getString(2);
                                 String fecha = conex4.getString(6);
                                 int tipo = conex4.getInt(7);
                                 int id = conex4.getInt(1);
 
-                                String tipo_txt ="";
-                                String color ="";
+                                String tipo_txt = "";
+                                String color = "";
 
-                                if (tipo == 1){
-                                    tipo_txt ="soporte ";
-                                    color ="#6BB822";
-                                }else{
-                                    tipo_txt ="mantenimiento ";
-                                    color ="#286CCD";
+                                if (tipo == 1) {
+                                    tipo_txt = "soporte ";
+                                    color = "#6BB822";
+                                } else {
+                                    tipo_txt = "mantenimiento ";
+                                    color = "#286CCD";
                                 }
-                                
-                                if(cont2==1){%>
-                            <div class="centrado">
-                                <form name="formularionumerodos" id="formularionumerodos" method="post" action="act_rep_7.jsp">
+
+                                if (cont2 == 1) {%>
+                        <div class="centrado">
+                            <form name="formularionumerodos" id="formularionumerodos" method="post" action="act_rep_7.jsp">
                                 <script>
                                     var fecha = new Date();
                                     var Fecha = (fecha.getFullYear() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
@@ -287,14 +297,16 @@
                                 <script>
                                     function fechaa() {
                                         document.getElementById('fecha_acm').value = Fecha.toString();
-                                        document.getElementById('estadom').value = "5"; };
+                                        document.getElementById('estadom').value = "5";
+                                    }
+                                    ;
                                     fechaa();
                                 </script>
                             </form>
                         </div>
-                            
-                            
-                            <% }else{
+
+
+                        <% } else {
                         %>
                         <div class=" p-4">
                             <h6><%=reporte%></h6>
@@ -304,8 +316,8 @@
                         </div>
                         <hr>
                         <%
-                            continue;
-                            }
+                                    continue;
+                                }
                             }
                         %>
                     </div>
@@ -316,23 +328,23 @@
                         <%
                             String strQry6 = "select * from reportes where estado = '5';";
                             ResultSet conex5 = bd.consulta(strQry6);
-                            while(conex5.next()){
-                            String reporte = conex5.getString(2);
-                            String fecha = conex5.getString(6);
-                            String respuesta = conex5.getString(4);
-                            String fecha2 = conex5.getString(5);
-                            
-                            int tipo = conex5.getInt(7);
-                            String tipo_txt ="";
-                            String color ="";
-                            
-                            if (tipo == 1){
-                                tipo_txt ="soporte ";
-                                color ="#6BB822";
-                            }else{
-                                tipo_txt ="mantenimiento ";
-                                color ="#286CCD";
-                            }
+                            while (conex5.next()) {
+                                String reporte = conex5.getString(2);
+                                String fecha = conex5.getString(6);
+                                String respuesta = conex5.getString(4);
+                                String fecha2 = conex5.getString(5);
+
+                                int tipo = conex5.getInt(7);
+                                String tipo_txt = "";
+                                String color = "";
+
+                                if (tipo == 1) {
+                                    tipo_txt = "soporte ";
+                                    color = "#6BB822";
+                                } else {
+                                    tipo_txt = "mantenimiento ";
+                                    color = "#286CCD";
+                                }
                         %>
                         <div class=" p-4">
                             <h6><%=reporte%></h6>
@@ -353,14 +365,7 @@
                 </div>
             </div>
         </div>
-        <a id="bt1a" href="index.html"><h5>regresar</h5></a>
-        <%}catch (Exception ex) {%>
-        <div class="container">
-            <div class="centrado">
-                <h1><%out.print("se ha cerrado la sesion");%></h1>  
-                <a class="btn btn-secondary" href='index.html'>regresar</a>
-            </div>
-        </div>
+        <%} catch (Exception ex) {%>
         <%
             }
         %>
