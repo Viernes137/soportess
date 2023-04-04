@@ -14,25 +14,28 @@ and open the template in the editor.
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!--css personalizado-->
         <link href="css1.css" rel="stylesheet">
+        <link href="uvauvahuata/css2.css" rel="stylesheet">
         <link rel="shortcut icon" href="IconoJAYMO.ico">
 
     </head>
 
     <body>
         <div class="container centrado" id="bloq1">
-            <div  id="bloq2" class="p-4">
-                <h1>Inicio de Sesión</h1>
-                <br>
-                <center><img src="¡WELCOME!.gif" width="200" height="200"></center>
-                <br>
+            <div  id="bloq2" class="p-4" >
+                <div id="inicio">
+                    <img src="¡WELCOME!.gif" style="height:100%;" >
+                </div>
+                <div>
+                    <h1>Inicio de Sesión</h1>
+                </div>
                 <form name="inicio-sesion" method="post" action="validarusr.jsp">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo</label>
+                        <label for="TxtUsr" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="TxtUsr" name="TxtUsr" aria-describedby="emailHelp">
 
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="TxtPsw" class="form-label">Password</label>
                         <input type="password" class="form-control" id="TxtPsw" name="TxtPsw">
 
                     </div>

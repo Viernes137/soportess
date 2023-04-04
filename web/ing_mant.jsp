@@ -15,24 +15,16 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
         <link href="css1.css" rel="stylesheet">
+        <link href="uvauvahuata/css2.css" rel="stylesheet">
         <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
-        <header>
-            <div class="menu">
-                <img src="Carita.png" alt="">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
         <%
             try {
                 HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
                 int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
                 String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
+                int tipous = (int)(miSessiondelUsuario.getAttribute("tipoUsr"));
 
                 if (idPac < 1) {
                     response.sendRedirect("index.html");
@@ -48,6 +40,26 @@
 
 
         %>
+         <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+           <%     
+            if(tipous==6){ 
+           %>   
+        <li><a href="super_usr.jsp">regresar</a></li>
+        <%
+            }else{
+        %>
+        <li><a href="index.html">Inicio</a></li>
+        <%   
+            }
+        %>    
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <div class="container">
             <div class="p-5  rounded-3">
                 <center><h1><%=Nombre%> es ingeniero de mantenimiento </h1></center>
@@ -115,7 +127,7 @@
                     </div>
                     <%
                     } else {%>
-                    <div class="centrado mt-3"  id="cont1">
+                    <div class="centrado mt-3"  id="cont2">
                         <h6><%=reporte%></h6>
 
                     </div>

@@ -14,26 +14,18 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
+        <link href="uvauvahuata/css2.css" rel="stylesheet">
         <link href="css1.css" rel="stylesheet">
         <link rel="shortcut icon" href="IconoJAYMO.ico">
     </head>
     <body>
-        <header>
-            <div class="menu">
-                <img src="Carita.png" alt="">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
         <%
             try {
                 HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
                 int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
                 String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
-
+                int tipous = (int)(miSessiondelUsuario.getAttribute("tipoUsr"));
+                
                 if (idPac < 1) {
                     response.sendRedirect("index.html");
                 }
@@ -42,7 +34,28 @@
 
                 Base bd = new Base();
                 bd.conectar();
+            %>
+            <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+           <%     
+            if(tipous==6){ 
+           %>   
+        <li><a href="super_usr.jsp">regresar</a></li>
+        <%
+            }else{
         %>
+        <li><a href="index.html">Inicio</a></li>
+        <%   
+            }
+        %>    
+                    </ul>
+                </nav>
+            </div>
+        </header>
+                    
         <script>
             var fecha = new Date();
             var Fecha = (fecha.getFullYear() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
@@ -55,7 +68,7 @@
                 <form name="Reportes" method="post" action="reg_rep.jsp">
                     <div class="mb-3">
                         <label for="reporte" class="form-label">Reporte</label>
-                        <input type="text" class="form-control"  id="reporte"  name="reporte" aria-describedby="emailHelp">
+                        <input type="text" class="form-control"  id="reporte"  name="reporte" aria-describedby="emailHelp" style="width: 750px; height: 50px;">
                     </div>
                     <div class="mb-3 escondido">
                         <label for="estado" class="form-label"></label>
@@ -91,7 +104,8 @@
                 </form>
             </div>
         </div>
-        <%} catch (Exception ex) {%>
+        <%     
+            } catch (Exception ex) {%>
 
         <%
             }

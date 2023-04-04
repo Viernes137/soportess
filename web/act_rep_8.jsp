@@ -1,7 +1,7 @@
 <%-- 
-    Document   : act_rep_7
-    Created on : 2 abr. 2023, 22:45:12
-    Author     : ldrnts
+    Document   : act_rep_8
+    Created on : 3 abr. 2023, 21:25:33
+    Author     : bruno fragoso
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="conexion.Base"%>
@@ -36,9 +36,9 @@
         <script>
             var patadepollo = confirm("<%=msj%>");
             if (patadepollo == true) {
-                location.href = 'ger_sop.jsp';
+                location.href = 'ing_sop.jsp';
             } else {
-                location.href = 'ger_sop.jsp';
+                location.href = 'ing_sop.jsp';
             }
         </script>
         <h1><%=estado%></h1>

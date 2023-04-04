@@ -75,6 +75,10 @@
                         msj="el tipo de usuario es"+tipo;
                         response.sendRedirect("ing_mant.jsp");
                         break;
+                    case 6:
+                        msj="el tipo de usuario es"+tipo;
+                        response.sendRedirect("super_usr.jsp");
+                        break;
                     default:
                         msj="algo anda mal ";
                         break;

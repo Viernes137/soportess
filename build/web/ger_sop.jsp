@@ -16,31 +16,22 @@
               integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- css personalizado -->
         <link href="css1.css" rel="stylesheet">
+        <link href="uvauvahuata/css2.css" rel="stylesheet">
         <link rel="shortcut icon" href="IconoJAYMO.ico">
         <style>
             .subtitulotabla{
                 height: 70px;
                 background-color:beige;
-
             }
         </style>
     </head>
     <body>
-        <header>
-            <div class="menu">
-                <img src="Carita.png" alt="">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
         <%
             try {
                 HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
                 int idPac = (int) (miSessiondelUsuario.getAttribute("idPer") == null ? 0 : miSessiondelUsuario.getAttribute("idPer"));
                 String Nombre = miSessiondelUsuario.getAttribute("UsuarioPac").toString();
+                int tipous = (int)(miSessiondelUsuario.getAttribute("tipoUsr"));
 
                 if (idPac < 1) {
                     response.sendRedirect("index.html");
@@ -53,6 +44,26 @@
                 Base bd = new Base();
                 bd.conectar();
         %>
+         <header>
+            <div class="menu">
+                <img src="Carita.png" alt="">
+                <nav>
+                    <ul>
+           <%     
+            if(tipous==6){ 
+           %>   
+        <li><a href="super_usr.jsp">regresar</a></li>
+        <%
+            }else{
+        %>
+        <li><a href="index.html">Inicio</a></li>
+        <%   
+            }
+        %>    
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <div class="container">
             <div class="p-5  rounded-3">
                 <center><h1><%=Nombre%> es Gerente de Soporte</h1></center>
@@ -162,7 +173,7 @@
                             <h4>proceso</h4>
                         </div>
                         <%
-                            String strQry3 = "select * from reportes where estado = '2';";
+                            String strQry3 = "select * from reportes where estado = '2' or estado = '7' ;";
                             ResultSet conex2 = bd.consulta(strQry3);
                             while (conex2.next()) {
 
@@ -228,7 +239,7 @@
                     </div>
                     <div class="col">
                         <div class="subtitulotabla centrado">
-                            <h4>mantenimiento completado</h4>
+                            <h4>mantenimiento finalizado</h4>
                         </div>
                         <script >
                             function calabaza(id) {
@@ -292,12 +303,13 @@
                                     <p><b>fecha de creacion:</b></p>
                                     <p> <%=fecha%></p>
                                 </div>
-                                <button class="btn btn-secondary" type="submit" onclick="calabaza(<%=id%>)" >Finalizar</button>
+                                <button class="btn btn-secondary" type="submit" onclick="calabaza(<%=id%>)" >Enviar a procesos</button>
                                 <hr>
                                 <script>
                                     function fechaa() {
                                         document.getElementById('fecha_acm').value = Fecha.toString();
-                                        document.getElementById('estadom').value = "5";
+                                        document.getElementById('estadom').value = "7";
+                                        document.getElementById('tipom').value = "1";
                                     }
                                     ;
                                     fechaa();
